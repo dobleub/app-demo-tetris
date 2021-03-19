@@ -1,0 +1,18 @@
+version: '3.3'
+
+services:
+  app:
+    container_name: app-demo-tetris
+    build:
+      context: ./
+      dockerfile: app.Dockerfile
+    restart: unless-stopped
+    volumes:
+      - ./app:/usr/src/app
+      - node-modules-app:/usr/src/app/node_modules
+      - ./logs:/home/node/.npm/_logs
+    ports:
+      - 8090:8090
+
+volumes:
+  node-modules-app:

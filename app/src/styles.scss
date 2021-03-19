@@ -1,0 +1,25 @@
+$font-stack: Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+$primary-color: #333;
+$light-blue: rgb(80, 227, 230);
+$dark-blue: rgb(36, 95, 223);
+$orange: rgb(223, 173, 36);
+$yellow: rgb(223, 217, 36);
+$green: rgb(48, 211, 56);
+$purple: rgb(132, 61, 198);
+$red: rgb(277, 78, 78);
+
+body {
+  margin: 0;
+  font-family: $font-stack;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+@font-face {
+	font-family: 'Pixel';
+	src: url('assets/fonts/Pixel-LCD-7.woff') format('woff');
+}
