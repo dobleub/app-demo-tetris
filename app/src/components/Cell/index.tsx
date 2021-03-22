@@ -11,4 +11,4 @@ const Cell = ({ type }):JSX.Element => {
 	);
 };
 
-export default Cell;
+export default React.memo(Cell);
