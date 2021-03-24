@@ -2,14 +2,16 @@ import { useState, useEffect } from 'react';
 
 import { createStage } from '../utils';
 
-export const useStage = (player, resetPlayer) => {
-	const [stage, setStage] = useState(createStage());
-	const [rowsCleared, setRowsCleared] = useState(0);
+import { IPlayer, IStage } from '../interfaces';
+
+export const useStage = (player:IPlayer, resetPlayer:Function) => {
+	const [stage, setStage] = useState<IStage>(createStage());
+	const [rowsCleared, setRowsCleared] = useState<number>(0);
 
 	useEffect(() => {
 		setRowsCleared(0);
 
-		const sweepRows = (newStage) => {
+		const sweepRows:IStage = (newStage:IStage) => {
 			return newStage.reduce((ack, row) => {
 				if (row.findIndex((cell) => cell[0] === 0) === -1) {
 					setRowsCleared((prev) => prev + 1);
@@ -21,7 +23,7 @@ export const useStage = (player, resetPlayer) => {
 			}, []);
 		}
 
-		const updateStage = (prevStage) => {
+		const updateStage:IStage = (prevStage:IStage) => {
 			// Flush the stage
 			const newStage = prevStage.map((row) => 
 				row.map((cell) => 

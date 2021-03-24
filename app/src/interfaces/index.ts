@@ -2,48 +2,36 @@ interface IAction {
 	type: string,
 	payload: any
 }
-interface IPromoCode {
-	_id?: string,
-	promo: string
-} 
-interface IProduct {
-	_id?: string,
-	code: string
-	name: string,
-	description: string,
-	price: number,
-	promos?: IPromoCode[],
-	status: boolean
+interface ITetromino {
+    shape: (string | number)[][];
+    color: string;
 }
-interface IPromo {
-	_id?: string
-	promo: string,
-    type: string,
-	minPieces: number,
-	maxPieces: number,
-	value: number,
-	validFrom: string,
-	validTo?: string,
-	status: boolean
+interface ITetrominos {
+	0: ITetromino,
+	I: ITetromino,
+	J: ITetromino,
+	L: ITetromino,
+	O: ITetromino,
+	S: ITetromino,
+	T: ITetromino,
+	Z: ITetromino
 }
-interface ICode {
-	_id?: string,
-	code: string
-} 
-interface ICart {
-	_id?: string,
-	username: string,
-	items: ICode[],
-	total: number,
-	status: boolean,
-	processed: boolean
+interface IPos {
+	x: number, 
+	y: number
 }
+interface IPlayer {
+	pos: IPos,
+	tetromino?: (string | number)[][],
+	collided?: boolean
+}
+type IStage = Array<Array<[number, string]>>;
 
 export {
 	IAction,
-	IPromoCode,
-	IProduct,
-	IPromo,
-	ICode,
-	ICart
+	ITetromino,
+	ITetrominos,
+	IPos,
+	IPlayer,
+	IStage
 }

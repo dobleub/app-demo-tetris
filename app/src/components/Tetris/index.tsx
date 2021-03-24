@@ -5,17 +5,19 @@ import Display from '../Display';
 import StartButton from '../StartButton';
 
 import { createStage, checkCollision } from '../../utils';
-import  { useGameStatus } from '../../hooks/useGameStatus';
-import  { useInterval } from '../../hooks/useInterval';
+import { useGameStatus } from '../../hooks/useGameStatus';
+import { useInterval } from '../../hooks/useInterval';
 import { useStage } from '../../hooks/useStage';
 import { usePlayer } from '../../hooks/usePlayer';
+
+import { IPlayer, IStage } from '../../interfaces';
 
 import bg from '../../assets/imgs/bg.png';
 import styles from './styles.module.scss';
 
 const Tetris = ():JSX.Element => {
-	const [dropTime, setDropTime] = useState(null);
-	const [gameOver, setGameOver] = useState(false);
+	const [dropTime, setDropTime] = useState<number>(null);
+	const [gameOver, setGameOver] = useState<boolean>(false);
 	const [player, updatePlayerPosition, resetPlayer, playerRotate] = usePlayer();
 	const [stage, setStage, rowsCleared] = useStage(player, resetPlayer);
 	const [score, setScore, rows, setRows, level, setLevel]  = useGameStatus(rowsCleared);
